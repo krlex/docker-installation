@@ -38,6 +38,36 @@ install_ubuntu() {
 
 }
 
+#install_fedora() {
+#  $SUDO dnf update -y
+#  $SUDO dnf -y install dnf-plugins-core
+#  $SUDO dnf  config-manager \
+#    --add-repo \
+#    https://download.docker.com/linux/fedora/docker-ce.repo
+#
+#  $SUDO dnf update
+#  $SUDO dnf config-manager --set-enabled docker-ce-nightly
+#  $SUDO dnf -y install docker-ce docker-ce-cli containerd.io
+#
+#  echo " Docker is ready for Fedora"
+#
+#}
+
+install_centos() {
+  $SUDO yum update -y
+  $SUDO yum install -y yum-utils
+  $SUDO yum-config-manager \
+    --add-repo \
+    https://download.docker.com/linux/centos/docker-ce.repo
+
+  $SUDO yum update
+  $SUDO yum-config-manager --enable docker-ce-nightly
+  $SUDO yum -y install docker-ce docker-ce-cli containerd.io
+
+  echo " Docker is ready for CentOS"
+
+}
+
 usage() {
   echo
   echo "Linux distribution not detected"
@@ -66,6 +96,12 @@ case $ID in
         'debian')
                 install_debian
         ;;
+        'centos')
+                install_centos
+        ;;
+#        'fedora')
+#                install_fedora
+#        ;;
         *)
           usage
         ;;
