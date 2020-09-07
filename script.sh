@@ -45,10 +45,6 @@ install_fedora() {
     --add-repo \
     https://download.docker.com/linux/centos/docker-ce.repo
 
-  # $SUDO dnf  config-manager \  #uncomment this if you use Fedora
-  #  --add-repo \
-  #  https://download.docker.com/linux/fedora/docker-ce.repo
-
   $SUDO dnf makecache
   $SUDO dnf update
   $SUDO dnf config-manager --set-enabled docker-ce-nightly
