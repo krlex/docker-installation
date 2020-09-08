@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+pip_installation() {
+  $SUDO pip3 install -U docker-compose
+}
+
 install_debian() {
   $SUDO apt update
   $SUDO apt dist-upgrade -y --auto-remove
@@ -16,6 +20,10 @@ install_debian() {
   $SUDO apt clean
 
   echo " Docker is ready for Debian"
+  echo " Starting installation docker-compose"
+  $SUDO apt install -y python3-pip
+  pip_installation
+  echo " Finished docker-compose installation"
 
 }
 
@@ -35,6 +43,10 @@ install_ubuntu() {
   $SUDO apt clean
 
   echo " Docker is ready for Ubuntu"
+  echo " Starting installation docker-compose"
+  $SUDO apt install -y python3-pip
+  pip_installation
+  echo " Finished docker-compose installation"
 
 }
 
@@ -51,6 +63,10 @@ install_fedora() {
   $SUDO dnf -y install docker-ce docker-ce-cli containerd.io
 
   echo " Docker is ready for Fedora"
+  echo " Starting installation docker-compose"
+  $SUDO dnf -y install python3-pip.noarch
+  pip_installation
+  echo " Finished docker-compose installation"
 
 }
 
@@ -63,6 +79,10 @@ install_centos() {
   $SUDO yum -y install docker-ce docker-ce-cli containerd.io
 
   echo " Docker is ready for CentOS"
+  echo " Starting installation docker-compose"
+  $SUDO yum install -y python3-pip.noarch
+  pip_installation
+  echo " Finished docker-compose installation"
 
 }
 
