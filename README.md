@@ -16,10 +16,7 @@ Just enjoy
 About Docker:
 
 ![Docker](https://avatars0.githubusercontent.com/u/5429470?s=200&v=4)
-
-This repository hosts open source components of Docker CE products. The master branch serves to unify the upstream components on a regular basis. Long-lived release branches host the code that goes into a product version for the lifetime of the product.
-
-This repository is solely maintained by Docker, Inc.
+Docker is software that provides containers, which allows teams to emulate development environments. Docker began as an internal project, initially developed by dotCloud engineers.
 
 About Docker-Compose:
 
