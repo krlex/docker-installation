@@ -6,7 +6,6 @@ pip_installation() {
 
 install_debian() {
   $SUDO apt update
-  $SUDO apt dist-upgrade -y --auto-remove
   $SUDO apt install -y apt-transport-https ca-certificates curl gnupg-agent software-properties-common
   curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
 
@@ -29,7 +28,6 @@ install_debian() {
 
 install_ubuntu() {
   $SUDO apt update
-  $SUDO apt dist-upgrade -y --auto-remove
   $SUDO apt install -y apt-transport-https ca-certificates curl gnupg-agent software-properties-common
   curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 
