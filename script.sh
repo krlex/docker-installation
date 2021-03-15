@@ -4,6 +4,18 @@ pip_installation() {
   $SUDO pip3 install -U docker-compose
 }
 
+install_alpine313() {
+  $SUDO apk upate
+  $SUDO apk add docker
+
+  echo " Docker is ready for Alpine"
+  echo " Starting installation docker-compose"
+  $SUDO apk add py3-pip
+  pip_installation
+  echo " Finished docker-compose installation"
+
+}
+
 install_arch() {
   $SUDO pacman -Syu
   $SUDO pacman -S docker
@@ -99,7 +111,7 @@ install_centos() {
 usage() {
   echo
   echo "Linux distribution not detected"
-  echo "Use: ID=[ubuntu|debian|centos|fedora]"
+  echo "Use: ID=[arch|alpine|ubuntu|debian|centos|fedora]"
   echo "Other distribution not yet supported"
   echo
 
@@ -118,6 +130,9 @@ else
 fi
 
 case $ID in
+        'alpine')
+                install_alpine313
+        ;;
         'arch')
                 install_arch
         ;;
