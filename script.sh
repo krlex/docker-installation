@@ -4,6 +4,18 @@ pip_installation() {
   $SUDO pip3 install -U docker-compose
 }
 
+install_arch() {
+  $SUDO pacman -Syu
+  $SUDO pacman -S docker
+
+  echo " Docker is ready for Arch"
+  echo " Starting installation docker-compose"
+  $SUDO pacman -S python-pip
+  pip_installation
+  echo " Finished docker-compose installation"
+
+}
+
 install_debian() {
   $SUDO apt update
   $SUDO apt install -y apt-transport-https ca-certificates curl gnupg-agent software-properties-common
@@ -106,6 +118,9 @@ else
 fi
 
 case $ID in
+        'arch')
+                install_arch
+        ;;
         'ubuntu')
                 install_ubuntu
         ;;
