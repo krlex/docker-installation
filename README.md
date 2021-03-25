@@ -15,6 +15,11 @@ Now i create this script who will recognize Linux OS and do installation and con
 Everything you need to do is just start the `script.sh` and script will do everythin else
 Just enjoy
 
+One-live command download and auto-start installation:
+```
+ bash <(curl -sL https://raw.githubusercontent.com/krlex/docker-installation/master/script.sh)
+```
+
 About Docker:
 
 ![Docker](https://avatars0.githubusercontent.com/u/5429470?s=200&v=4)
