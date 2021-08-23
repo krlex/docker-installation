@@ -4,6 +4,7 @@ Sometimes i have problem to do all instructions from official site of docker for
 Now i create this script who will recognize Linux OS and do installation and configuration
 
 ```
+- Amazon Linux
 - Alpine
 - Arch
 - Debian

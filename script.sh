@@ -108,10 +108,25 @@ install_centos() {
 
 }
 
+install_amazon() {
+  $SUDO yum update -y
+  $SUDO amazon-linux-extras install -y docker 
+  $SUDO systemctl enable docker
+  $SUDO service docker start
+
+  echo " Docker is ready for Amazon Linux"
+  echo " Starting installation docker-compose"
+  $SUDO yum install -y python3-pip.noarch
+  pip_installation
+  $SUDO ln -s /usr/local/bin/docker-compose /bin/docker-compose
+  echo " Finished docker-compose installation"
+
+}
+
 usage() {
   echo
   echo "Linux distribution not detected"
-  echo "Use: ID=[arch|alpine|ubuntu|debian|centos|fedora]"
+  echo "Use: ID=[amazon|arch|alpine|ubuntu|debian|centos|fedora]"
   echo "Other distribution not yet supported"
   echo
 
@@ -130,6 +145,9 @@ else
 fi
 
 case $ID in
+        'amzn')
+                install_amazon
+        ;;
         'alpine')
                 install_alpine313
         ;;
