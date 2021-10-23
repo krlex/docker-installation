@@ -77,7 +77,7 @@ install_fedora() {
   $SUDO dnf -y install dnf-plugins-core
   $SUDO dnf config-manager \
     --add-repo \
-    https://download.docker.com/linux/centos/docker-ce.repo
+    https://download.docker.com/linux/fedora/docker-ce.repo
 
   $SUDO dnf makecache
   $SUDO dnf update
