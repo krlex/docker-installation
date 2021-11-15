@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 pip_installation() {
+  $SUDO pip3 install pip --upgrade
   $SUDO pip3 install -U docker-compose
 }
 
