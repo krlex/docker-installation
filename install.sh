@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
-docker-machine(){
-    curl -L https://github.com/docker/machine/releases/download/v0.16.2/docker-machine-`uname -s`-`uname -m` >/tmp/docker-machine &&
-    chmod +x /tmp/docker-machine &&
-    sudo cp /tmp/docker-machine /usr/local/bin/docker-machine
-}
+#docker-machine(){
+#    curl -L https://github.com/docker/machine/releases/download/v0.16.2/docker-machine-`uname -s`-`uname -m` >/tmp/docker-machine &&
+#    chmod +x /tmp/docker-machine &&
+#    sudo cp /tmp/docker-machine /usr/local/bin/docker-machine
+#}
 
 pip_installation() {
   $SUDO pip3 install pip --upgrade
@@ -31,7 +31,7 @@ install_arch() {
   $SUDO pacman -S python-pip
   pip_installation
   echo " Finished docker-compose installation"
-  docker-machine  
+#  docker-machine  
 
 }
 
@@ -56,7 +56,7 @@ install_debian() {
   pip_installation
   echo " Finished docker-compose installation"
   echo " Start installation docker-machine"
-  docker-machine  
+#  docker-machine  
 
 }
 
@@ -80,7 +80,7 @@ install_ubuntu() {
   pip_installation
   echo " Finished docker-compose installation"
   echo " Start installation docker-machine"
-  docker-machine  
+#  docker-machine  
 
 }
 
@@ -102,7 +102,7 @@ install_fedora() {
   pip_installation
   echo " Finished docker-compose installation"
   echo " Start installation docker-machine"
-  docker-machine  
+#  docker-machine  
 
 }
 
@@ -120,7 +120,7 @@ install_centos() {
   pip_installation
   echo " Finished docker-compose installation"
   echo " Start installation docker-machine"
-  docker-machine  
+#  docker-machine  
 
 }
 
@@ -137,7 +137,7 @@ install_amazon() {
   $SUDO ln -s /usr/local/bin/docker-compose /bin/docker-compose
   echo " Finished docker-compose installation"
   echo " Start installation docker-machine"
-  docker-machine  
+#  docker-machine  
 
 }
 

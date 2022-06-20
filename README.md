@@ -35,3 +35,9 @@ Compose is a tool for defining and running multi-container Docker applications. 
 Compose is great for development, testing, and staging environments, as well as CI workflows. You can learn more about each case in Common Use Cases.
 
 Using Compose is basically a three-step process.
+
+![Docker-Machine 2019](https://github.com/docker/machine/releases/tag/v0.16.2)
+Machine lets you create Docker hosts on your computer, on cloud providers, and inside your own data center.
+It creates servers, installs Docker on them, then configures the Docker client to talk to them.
+
+For installation you need to uncomment docker-machine functions in `install.sh` and on OS you want to install
