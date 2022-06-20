@@ -27,4 +27,4 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Starting to download script and also starting installation and configuration
-        run:  bash <(curl -sL https://raw.githubusercontent.com/krlex/docker-installation/master/script.sh)
+        run:  bash <(curl -sL https://raw.githubusercontent.com/krlex/docker-installation/master/install.sh)
