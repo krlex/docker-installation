@@ -18,7 +18,7 @@ Just enjoy
 
 One-live command download and auto-start installation:
 ```
- bash <(curl -sL https://raw.githubusercontent.com/krlex/docker-installation/master/script.sh)
+ bash <(curl -sL https://raw.githubusercontent.com/krlex/docker-installation/master/install.sh)
 ```
 
 About Docker:
