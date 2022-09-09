@@ -37,7 +37,7 @@ install_arch() {
 
 install_debian() {
   $SUDO apt update
-  $SUDO apt install -y apt-transport-https ca-certificates curl gnupg-agent software-properties-common
+  $SUDO apt install -y apt-transport-https ca-certificates curl gnupg-agent software-properties-common curl
   curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
 
   $SUDO add-apt-repository \
@@ -62,7 +62,7 @@ install_debian() {
 
 install_ubuntu() {
   $SUDO apt update
-  $SUDO apt install -y apt-transport-https ca-certificates curl gnupg-agent software-properties-common
+  $SUDO apt install -y apt-transport-https ca-certificates curl gnupg-agent software-properties-common curl
   curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 
   $SUDO add-apt-repository \
