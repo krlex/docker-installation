@@ -111,8 +111,8 @@ install_centos() {
   $SUDO yum install -y yum-utils
 
   $SUDO yum update
-  $SUDO yum-config-manager --enable docker-ce-nightly
-  $SUDO yum -y install docker-ce docker-ce-cli containerd.io
+  $SUDO sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+  $SUDO yum -y install  docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
   echo " Docker is ready for CentOS"
   echo " Starting installation docker-compose"
