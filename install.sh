@@ -12,12 +12,11 @@ pip_installation() {
 
 install_alpine313() {
   $SUDO apk upate
-  $SUDO apk add docker
+  $SUDO apk add docker docker-compose 
 
   echo " Docker is ready for Alpine"
   echo " Starting installation docker-compose"
-  $SUDO apk add py3-pip
-  pip_installation
+  $SUDO apk add py3-pip docker-compose
   echo " Finished docker-compose installation"
 
 }
@@ -38,16 +37,18 @@ install_arch() {
 install_debian() {
   $SUDO apt update
   $SUDO apt install -y apt-transport-https ca-certificates curl gnupg-agent software-properties-common curl
-  curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
+  $SUDO install -m 0755 -d /etc/apt/keyrings
+  curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg 
+  $SUDO chmod a+r /etc/apt/keyrings/docker.gpg
 
-  $SUDO add-apt-repository \
-   "deb [arch=amd64] https://download.docker.com/linux/debian \
-   $(lsb_release -cs) \
-   stable"
+  echo \
+  "deb [arch="$(dpkg --print-architecture)" signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/debian \
+  "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" | \
+  $SUDO tee /etc/apt/sources.list.d/docker.list > /dev/null
 
 
   $SUDO apt update
-  $SUDO apt install -y docker-ce docker-ce-cli containerd.io
+  $SUDO apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
   $SUDO apt clean
 
   echo " Docker is ready for Debian"
@@ -63,12 +64,14 @@ install_debian() {
 install_ubuntu() {
   $SUDO apt update
   $SUDO apt install -y apt-transport-https ca-certificates curl gnupg-agent software-properties-common curl
-  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+  $SUDO install -m 0755 -d /etc/apt/keyrings
+  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg 
+  $SUDO chmod a+r /etc/apt/keyrings/docker.gpg
 
-  $SUDO add-apt-repository \
-   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
-   $(lsb_release -cs) \
-   stable"
+  echo \
+  "deb [arch="$(dpkg --print-architecture)" signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+  "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" | \
+  $SUDO tee /etc/apt/sources.list.d/docker.list > /dev/null
 
   $SUDO apt update
   $SUDO apt install -y docker-ce docker-ce-cli containerd.io
@@ -120,6 +123,7 @@ install_centos() {
   echo " Starting installation docker-compose"
   $SUDO yum install -y python3-pip.noarch
   pip_installation
+  sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
   echo " Finished docker-compose installation"
   echo " Start installation docker-machine"
 #  docker-machine  
