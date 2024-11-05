@@ -7,12 +7,10 @@
 
 pip_installation() {
   $SUDO pip3 install pip --upgrade
-  $SUDO pip3 install -U docker-compose
 }
 
 install_alpine313() {
   $SUDO apk upate
-  $SUDO apk add docker docker-compose 
 
   echo " Docker is ready for Alpine"
   echo " Starting installation docker-compose"
